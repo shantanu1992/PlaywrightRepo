@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import * as dotenv from 'dotenv'
 import { faker } from '@faker-js/faker';
 
-dotenv.config()
+//dotenv.config()
 
 test.beforeEach(async({page})=>{
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
