@@ -27,6 +27,13 @@ jobs:
       run: |
           xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
           npx playwright test --headed
+    - name: Upload videos
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: test-videos
+          path: test-results/**/video.mp4
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
