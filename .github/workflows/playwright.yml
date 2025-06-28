@@ -17,16 +17,14 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    # - name: abcd
-    #     run: npm ci
-    # - name: Run Playwright tests
-    #   run: npx playwright test --headed
-    - name:    Install xvfb
-      run:  sudo apt-get update && sudo apt-get install -y xvfb
-    - name:  Run Playwright tests in headed mode using xvfb
-      run: |
-          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
-          npx playwright test --headed
+    - name: Run Playwright tests
+      run: npx playwright test
+    # - name:    Install xvfb
+    #   run:  sudo apt-get update && sudo apt-get install -y xvfb
+    # - name:  Run Playwright tests in headed mode using xvfb
+    #   run: |
+    #       xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
+    #       npx playwright test --headed
     - name: Upload videos
       if: always()
       uses: actions/upload-artifact@v4
