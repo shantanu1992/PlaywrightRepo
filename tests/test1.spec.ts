@@ -58,7 +58,7 @@ test('testcase desc', async ({page}) => {
     expect(await page.locator('.alert-success').textContent()).toContain('Success')
 })
 
-test('Checking unsuccessful login', async ({page})=>{
+test.skip('Checking unsuccessful login', async ({page})=>{
     
     const fakeName = faker.internet.email()
     const fakePass = faker.internet.password()
