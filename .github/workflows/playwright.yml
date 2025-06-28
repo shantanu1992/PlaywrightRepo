@@ -17,8 +17,16 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    # - name: abcd
+    #     run: npm ci
+    # - name: Run Playwright tests
+    #   run: npx playwright test --headed
+    - name:    Install xvfb
+      run:  sudo apt-get update && sudo apt-get install -y xvfb
+    - name:  Run Playwright tests in headed mode using xvfb
+      run: |
+          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
+          npx playwright test --headed
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
