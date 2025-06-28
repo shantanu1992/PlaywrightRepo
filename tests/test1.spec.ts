@@ -22,7 +22,7 @@ test('testcase desc', async ({page}) => {
     await page.getByRole('button',{name:'Sign In'}).click()
     //expect(await page.locator('.navbar-brand').first().textContent()).toEqual('ProtoCommerce')
     //await page.screenshot({ path: 'before-navbar-check.png' });
-    await expect(page.locator('.navbar-brand').first()).toHaveText('ProtoCommerce1');
+    await expect(page.locator('.navbar-brand').first()).toHaveText('ProtoCommerce');
 
     await page.screenshot({ path: 'before-card-check.png' });
     const itemToAdd = ['iphone X', 'Samsung', 'Nokia']
