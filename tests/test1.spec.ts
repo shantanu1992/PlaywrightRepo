@@ -14,6 +14,9 @@ test('testcase desc', async ({page}) => {
     // await page.getByLabel('Password').fill('learning')
     //await page.viewportSize({'max'})
     test.setTimeout(30000);
+    await page.waitForLoadState('networkidle');
+    console.log('URL:', page.url());
+    
     await page.fill('#username', process.env.E2E_USERNAME || '')
     await page.fill('#password', process.env.E2E_PASSWORD || '')
     await page.getByRole('button',{name:'Sign In'}).click()
@@ -21,7 +24,7 @@ test('testcase desc', async ({page}) => {
     //await page.screenshot({ path: 'before-navbar-check.png' });
     //await expect(page.locator('.navbar-brand').first()).toHaveText('ProtoCommerce');
 
-
+    await page.screenshot({ path: 'before-card-check.png' });
     const itemToAdd = ['iphone X', 'Samsung', 'Nokia']
     for(const item of itemToAdd){
         await page.locator('.card.h-100').filter({hasText:item}).
